@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+
+// Function to reverse the string in place
+void reverseString(std::string& s) {
+    int left = 0;                      // Initialize left pointer
+    int right = s.length() - 1;        // Initialize right pointer
+    
+    while (left < right) {
+        // Swap the characters at left and right
+        char helper = s[left];
+        s[left] = s[right];
+        s[right] = helper;
+        
+        // Move the pointers towards the center
+        left++;
+        right--;
+    }
+}
+
+int main() {
+    std::string s;
+
+    // Ask the user to input a string
+    std::cout << "Enter a string to reverse: ";
+    std::cin >> s;
+
+    // Reverse the string
+    reverseString(s);
+
+    // Display the reversed string
+    std::cout << "Reversed string: " << s << std::endl;
+
+    // Explain the time and space complexity
+    std::cout << "Time Complexity is O(n) because the string is traversed only once." << std::endl;
+    std::cout << "Space Complexity is O(1) because no additional memory is allocated for reversing the string." << std::endl;
+
+    return 0;
+}
+
