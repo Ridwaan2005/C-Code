@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main() {
+ 
+int i=1, j;
+ 
+while(!((j=i*i) > 9 && ((j%100)/10)%2 == 1 && (j%10)%2 == 1)) {
+ 
+i++;
+ 
+}
+ 
+cout << "The perfect square of " << i << " is " << j << ", whose two last digits are odd integers.\n";
+ 
+return 0;
+}
