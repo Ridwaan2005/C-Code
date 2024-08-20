@@ -1,0 +1,45 @@
+#include <iostream>
+#include <climits> // For INT_MAX
+
+using namespace std;
+
+const int V = 4; // Number of cities
+
+int findMinimumTravelCost(int graph[V][V]) {
+    int minCost = INT_MAX;
+  
+    
+    for (int i = 1; i < V; i++) {
+        for (int j = 1; j < V; j++) {
+            if (j != i) {
+                for (int k = 1; k < V; k++) {
+                    if (k != i && k != j) {
+                        int remainingCity = 6 - i - j - k; // Since 1+2+3=6, this finds the remaining city
+                       
+                        int cost = graph[0][i] + graph[i][j] + graph[j][k] + graph[k][remainingCity] + graph[remainingCity][0];
+                        if (cost < minCost) {
+                            minCost = cost;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    return minCost;
+}
+
+int main() {
+   
+    int graph[V][V] = {
+        {0, 10, 15, 20},  // Distances from City 0 to others
+        {10, 0, 35, 25},  // Distances from City 1 to others
+        {15, 35, 0, 30},  // Distances from City 2 to others
+        {20, 25, 30, 0}   // Distances from City 3 to others
+    };
+
+    int minCost = findMinimumTravelCost(graph);
+    cout << "Minimum travel cost: " << minCost << endl;
+
+    return 0;
+}
