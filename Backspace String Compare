@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+// Function to process the string as per the backspace character
+std::string generateString(const std::string& str) {
+    std::string res;
+    for (char ch : str) {
+        if (ch != '#') {
+            res += ch; // Append the character to the result string
+        } else if (!res.empty()) {
+            res.pop_back(); // Delete the last character if the result string is not empty
+        }
+    }
+    return res;
+}
+
+int main() {
+    std::string s, t;
+    
+    // Obtain strings s and t from the user
+    std::cout << "Enter string s: ";
+    std::cin >> s;
+    std::cout << "Enter string t: ";
+    std::cin >> t;
+    
+    // Generate the processed strings
+    std::string finalS = generateString(s);
+    std::string finalT = generateString(t);
+    
+    // Compare the processed strings and output the result
+    if (finalS == finalT) {
+        std::cout << s << " and " << t << " are equal." << std::endl;
+    } else {
+        std::cout << s << " and " << t << " are NOT equal." << std::endl;
+    }
+    
+    return 0;
+}
+
+Explanation of the code:
+
+The generateString() function takes a string and processes it character by character. If the character is not a backspace ('#'), it is appended to the result string. If it is a backspace and the result string is not empty, the last character is removed.
+In main(), the program takes two input strings from the user.
+Each string is processed using the generateString() function.
+The results are then compared, and the program prints whether the strings are equal after processing backspaces.
+This program meets the requirements and hints given in your document. It manually implements the algorithm to process the strings and uses the .pop_back() and .empty() operations from the <string> library, as allowed.
