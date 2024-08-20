@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main()
+{ 
+ int x,z;
+ cout<<"please enter 1st number="<<endl;
+ cin>>x;
+ cout<<"please enter 2nd number="<<endl;
+ cin>>z;
+ int sum=x+z;
+ int subtract=x-z;
+ int product=x*z;
+ float divide=x/z;
+ 
+   cout<< "the sum is="<<sum<<endl;
+   cout<<"the subtraction is="<<subtract<<endl;
+   cout<< "the multiplication is"<< product<<endl;
+   cout<< "the divison is="<<divide<<endl;
+   return 0;
+   }
